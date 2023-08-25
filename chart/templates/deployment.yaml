@@ -119,6 +119,15 @@ spec:
       {{- toYaml .Values.controller.nodeSelector | nindent 8 }}
       {{- end }}
       {{- if .Values.controller.tolerations }}
+      affinity:
+        nodeAffinity:
+        {{- if .Values.controller.affinity.nodeAffinity }}
+            {{- toYaml .Values.controller.affinity.nodeAffinity | nindent 10 }}
+        {{- end }}
+        podAntiAffinity:
+        {{- if .Values.controller.affinity.podAntiAffinity }}
+            {{- toYaml .Values.controller.affinity.podAntiAffinity | nindent 10 }}
+        {{- end }}
       tolerations:
       {{- toYaml .Values.controller.tolerations | nindent 8 }}
       {{- end }}
