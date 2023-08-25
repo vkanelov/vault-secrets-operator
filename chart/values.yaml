@@ -16,6 +16,11 @@ controller:
   # nodeSelector:
   #   beta.kubernetes.io/arch: amd64
   nodeSelector: {}
+  
+  # -- Affinity and anti-affinity rules for server scheduling to nodes
+  ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+  ##
+  affinity:
   # Toleration Settings for vault-secrets-operator pod.
   # The value is an array of PodSpec Toleration maps.
   # ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
